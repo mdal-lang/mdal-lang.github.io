@@ -1,6 +1,6 @@
 # A DSL for AL Extension Development
 
-`mdAL`is a Domain Specific Language (DSL) that enables a Model-Driven approach to extension module development for the ERP System Microsoft Dynamics 365 Business Central (BC). `mdAL` stands for **m**odel-**d**riven **AL**.
+`mdAL` is a Domain Specific Language (DSL) that enables a Model-Driven approach to extension module development for the ERP System Microsoft Dynamics 365 Business Central (BC). `mdAL` stands for **m**odel-**d**riven **AL**.
 
 !> Please note that the current `mdAL` releases are pre-releases. If you encounter errors or have suggestions please open an issue in the corresponding [repositories](https://github.com/mdal-lang).
 
