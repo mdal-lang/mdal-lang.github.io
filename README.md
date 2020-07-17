@@ -93,9 +93,13 @@ Depending on the table type different types of fields can be used. [Custom Field
 A Custom Field defines a regular table field known from AL. The only difference is that you do not have to specify a field number. In `mdAL` field numbers are generated automatically based on the order of the field definitions. So the field name and type are required to define a field. You can use all of the standard AL types (`Boolean`, `Integer`, `BigInteger`, `Decimal`, `Code`, `Text`, `Date`, `Time`, `DateTime`, `Guid`, `Blob`, `Enum`, `Option`, `Media`, `MediaSet`, `DateFormula`, `Duration`, `RecordId`, `TableFilter`). The only property available in Custom Fields is the `TableRelation` property that can be used to reference AL tables contained in the symbol references. For `Enum` and `Option` fields you can define the members directly in the type definition. Enum objects are then automatically generated from the field definition.
 
 ```mdAL
-field("Language Code"; Code[10]) {
+field("Gen. Prod. Posting Group"; Code[20]) {
     // Optionally you can define a table relation to AL tables
-    TableRelation = "Language";
+    TableRelation = "Gen. Product Posting Group";
+}
+field("Resource No."; Code[20]) {
+    // where and const are also supported
+    TableRelation = "Resource" where("Type" = const("Person"));
 }
 // Option/Enum members are specified directly in the type definition
 field("Internal/External"; Option[" ", "Internal", "External"])
