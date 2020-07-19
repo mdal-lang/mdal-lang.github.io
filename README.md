@@ -58,6 +58,8 @@ Specific code that cannot be generated from a `mdAL` model file can be integrate
 
 ## Quick Start
 
+!> Please note that `mdAL` currently is targeting Business Central 16 and later.
+
 Try `mdAL` with a [demo project](https://github.com/mdal-lang/mdal-demo) specifying a seminar management solution. You can install the `mdAL` [VS Code Extension](#vs-code-extension) for local development or try `mdAL` inside the Gitpod online IDE:
 
 [![Edit with Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/mdal-lang/mdal-demo)
