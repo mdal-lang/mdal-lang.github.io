@@ -54,7 +54,7 @@ Moreover, these customizations to standard objects are generated:
 * `Comment Line` table extension
 * `Comment Line Table Name` enum extension
 
-Specific code that cannot be generated from a `mdAL` model file can be integrated by subscribing to the various event publishers available in the generated AL code. Hence, you can use `mdAL` to automatically generate a base AL extension and create an additional AL extension that depends on the base extension and adds your specific code. This way you do not have to change generated code in order to do customizations. Take a look at the [demo projects](#demo-projects) to see how this could be done.
+Specific code that cannot be generated from a `mdAL` model file can be integrated by subscribing to the various event publishers available in the generated AL code. Hence, you can use `mdAL` to automatically generate a base AL extension and create an additional AL extension that depends on the base extension and adds your specific code. This way you do not have to change generated code in order to do customizations. Take a look at the demo projects [`mdal-lang/mdal-demo`](https://github.com/mdal-lang/mdal-demo) and [`mdal-lang/mdal-demo-extenion`](https://github.com/mdal-lang/mdal-demo-extension) to see how this could be done.
 
 ## Quick Start
 
@@ -69,6 +69,8 @@ In the [`mdal-lang/mdal-demo-extenion`](https://github.com/mdal-lang/mdal-demo-e
 ### Solution
 
 Using the `solution` keyword a new solution can be defined. You have to specify the name of the solution and the prefix used for all AL objects. Inside of this block the tables ([Master](#master), [Supplemental](#supplemental), [Document Header (Line)](#document), [Ledger Entry](#ledger-entry)) are defined. Supplemental tables are optional.
+
+**Example:**
 
 ```mdAL
 solution "Seminar Management" {
@@ -86,11 +88,13 @@ solution "Seminar Management" {
 
 ### Table Field
 
-Depending on the table type different types of fields can be used. [Custom Fields](#custom-field) and [Template Fields](#template-field) can be used in all table types. Include Fields can only be used in [Document Header](#document-header), [Document Line](#document-line) and [Ledger Entry](#ledger-entry) tables.
+Depending on the table type different types of fields can be used. [Custom Fields](#custom-field) and [Template Fields](#template-field) can be used in all table types. [Include Fields](#include-field) can only be used in [Document Header](#document-header), [Document Line](#document-line) and [Ledger Entry](#ledger-entry) tables.
 
 #### Custom Field
 
 A Custom Field defines a regular table field known from AL. The only difference is that you do not have to specify a field number. In `mdAL` field numbers are generated automatically based on the order of the field definitions. So the field name and type are required to define a field. You can use all of the standard AL types (`Boolean`, `Integer`, `BigInteger`, `Decimal`, `Code`, `Text`, `Date`, `Time`, `DateTime`, `Guid`, `Blob`, `Enum`, `Option`, `Media`, `MediaSet`, `DateFormula`, `Duration`, `RecordId`, `TableFilter`). The only property available in Custom Fields is the `TableRelation` property that can be used to reference AL tables contained in the symbol references. For `Enum` and `Option` fields you can define the members directly in the type definition. Enum objects are then automatically generated from the field definition.
+
+**Example:**
 
 ```mdAL
 field("Gen. Prod. Posting Group"; Code[20]) {
@@ -109,6 +113,8 @@ field("Source Type"; Enum[" ", "Seminar Registration"])
 #### Template Field
 
 A Template Field can be used to automatically generate a set of fields and/or standard fields that need additional AL code (e. g. for validation). A field name and the template type have to be specified.
+
+**Example:**
 
 ```mdAL
 template("Contact Information"; ContactInfo)
@@ -129,6 +135,8 @@ The following templates types are available in `mdAL`:
 
 A Include Field can be used to specify the data flow between tables. Using this language element you only need to define the type of a field once and can include this field in other tables. A field name and a reference to the original field (`"Table Name"."Field Name"`) have to be specified. If the optional property `Validate` is set, field assignments are validated (e. g. assignments implemented after a Master record is entered in a Document Header table).
 
+**Example:**
+
 ```mdAL
 // Custom Fields in Master table "Seminar"
 field("Duration Days"; Decimal)
@@ -145,6 +153,8 @@ include("Seminar Price"; "Seminar"."Seminar Price") {
 
 A Page Field is used to include a table field on a page. You only have to reference the name of the table field.
 
+**Example:**
+
 ```mdAL
 field("Duration Days")
 ```
@@ -152,6 +162,8 @@ field("Duration Days")
 ### Page Field Group
 
 A Page Field Group contains multiple Page Fields to be grouped on Card Pages or Document Pages. You have to specify the group name.
+
+**Example:**
 
 ```mdAL
 group("General") {
@@ -162,6 +174,8 @@ group("General") {
 ### Master
 
 To define a Master table you first have to specify its name and short name. Using the keywords `fields` the table fields are specified. The keywords `cardPage` and `listPage` start a Card Page and List Page definition.
+
+**Example:**
 
 ```mdAL
 master "Seminar" {
@@ -185,6 +199,8 @@ master "Seminar" {
 
 To define a Supplemental table you first have to specify its name and short name. Using the keywords `fields` the table fields are specified. The keyword and `listPage` starts a List Page definition.
 
+**Example:**
+
 ```mdAL
 supplemental "Instructor" {
     ShortName = "Inst.";
@@ -203,6 +219,8 @@ supplemental "Instructor" {
 
 To define a document you first have to specify its name and short name. Then the [Document Header](#document-header) and [Document Line](#document-line) tables are define inside of this block.
 
+**Example:**
+
 ```mdAL
 document "Seminar Registration" {
     ShortName = "Sem. Reg.";
@@ -216,6 +234,8 @@ document "Seminar Registration" {
 #### Document Header
 
 To define a Document Header table you first have to specify its name and short name. Furthermore, the status captions for the Document Header have to be provided. Using the keywords `fields` the table fields are specified. The keywords `documentPage` and `listPage` start a Document Page and List Page definition.
+
+**Example:**
 
 ```mdAL
 header "Seminar Registration Header" {
@@ -240,6 +260,8 @@ header "Seminar Registration Header" {
 
 To define a Document Line table you first have to specify its name and short name. Using the keywords `fields` the table fields are specified. The keyword `listPartPage` starts a List Part Page definition.
 
+**Example:**
+
 ```mdAL
 line "Seminar Registration Line" {
     ShortName = "Sem. Reg. Line";
@@ -258,6 +280,8 @@ line "Seminar Registration Line" {
 
 To define a Ledger Entry table you first have to specify its name and short name. Using the keywords `fields` the table fields are specified. The keyword `listPage` starts a List Page definition.
 
+**Example:**
+
 ```mdAL
 ledgerEntry "Seminar Ledger Entry" {
     ShortName = "Sem. Ledger Entry";
@@ -274,7 +298,7 @@ ledgerEntry "Seminar Ledger Entry" {
 
 ## VS Code Extension
 
-From the VS Code Marketplace you can download the `mdAL` [VS Code extension](https://marketplace.visualstudio.com/items?itemName=joneug.mdal) which adds language support for `mdAL`. To use the extension [Java JRE 8](https://www.java.com/de/download/) or newer is required. The extension provides the following features:
+From the VS Code Marketplace you can download the `mdAL` [VS Code extension](https://marketplace.visualstudio.com/items?itemName=joneug.mdal) which adds language support for `mdAL`. To use the extension [Java JRE 8](https://www.java.com/de/download/) or newer is required (please restart after installing Java JRE). The extension provides the following features:
 
 * Language Support
   * Syntax highlighting for `mdAL` files.
@@ -312,7 +336,7 @@ docker run --rm -v "$(pwd):C:/project" mdal/cli model.mdal
 
 If you want to use the `mdAL` generator inside of GitHub Actions workflows you can use the `mdAL` [Action](https://github.com/mdal-lang/mdal-action).
 
-**Example usage:**
+**Example:**
 
 ```yaml
 uses: mdal-lang/mdal-action@v1
