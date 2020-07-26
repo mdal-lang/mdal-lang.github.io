@@ -20,7 +20,7 @@ Because of these patterns there is a high portion of code that can be considered
 
 ## Features
 
-`mdAL` is a descriptive language which defines the needed core entities and views of an AL solution. In addition, the data flow between entities can be specified. `mdAL` provides AL code generation for:
+`mdAL` is a descriptive language that defines the needed core entities and views of an AL solution. In addition, the data flow between entities can be specified. `mdAL` provides AL code generation for:
 
 * Tables
   * Setup
