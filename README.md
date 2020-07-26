@@ -16,7 +16,7 @@ When developing an AL extension that adds a whole new solution to Microsoft Dyna
 * There is a standard design for posting routines (e. g. Post, Post (Yes/No), Jnl. Check Line, Jnl. Post Line).
 * There is a standard set of customizations required to integrate the solution into the BC standard (e. g. Navigate, Source Code Setup, Comment Line Table Name).
 
-Because of these patterns there is a high portion of code that can be considered as "boilerplate code" because it is either completely identical in every solution or can be derived after investigating the data model. `mdAL` aims at automatically generating this "boilerplate code" from a `mdAL` model file.
+Because of these patterns, there is a high portion of code that can be considered as "boilerplate code" because it is either completely identical in every solution or can be derived after investigating the data model. `mdAL` aims at automatically generating this "boilerplate code" from a `mdAL` model file.
 
 ## Features
 
