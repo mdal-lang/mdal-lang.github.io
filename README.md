@@ -28,7 +28,7 @@ Because of these patterns, there is a high portion of code that can be considere
   * Supplemental
   * (Posted) Document Header and Line
   * Document Comment Line
-  * Journal Template, Batch and Line
+  * Journal Line
   * Ledger Entry
   * Register
 * Enums
