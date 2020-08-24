@@ -171,7 +171,7 @@ A Page Field Group contains multiple Page Fields to be grouped on Card Pages or 
 
 ```mdAL
 group("General") {
-    // Page Fields
+    // Page Field(s)
 }
 ```
 
