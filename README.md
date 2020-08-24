@@ -130,8 +130,8 @@ The following templates types are available in `mdAL`:
 * **`TemplateName`**: Generates the fields `Name`, `Name 2` and `Search Name`.
 * **`TemplateDescription`**: Generates the fields `Description`, `Description 2` and `Search Description`.
 * **`TemplateDimensions`**: Generates the fields `Global Dimension Code 1` and `Global Dimension Code 2` (for [Master](#master) and [Supplemental](#supplemental) tables) or `Shortcut Dimension Code 1` and `Shortcut Dimension Code 2` fields (otherwise).
-* **`TemplateAddress`**: Generates the fields `Address`, `Address 2`, `City`, `Country/Region Code`, `Post Code`, and `County`.
-* **`TemplateContactInfo`**: Generates the fields `Contact Person`, `Phone No.`, `Telex No.`, `Fax No.`, `Telex Answer Back`, `E-Mail`, `Home Page`.
+* **`TemplateAddress`**: Generates the fields `Address`, `Address 2`, `City`, `Country/Region Code`, `Post Code` and `County`.
+* **`TemplateContactInfo`**: Generates the fields `Contact Person`, `Phone No.`, `Telex No.`, `Fax No.`, `Telex Answer Back`, `E-Mail` and `Home Page`.
 * **`TemplateSalesperson`**: Generates the field `Salesperson Code`.
 * **`TemplateContact`**: Generates a field with the name of the template field with relation to the `Contact` table.
 
