@@ -66,7 +66,7 @@ Try `mdAL` with a [demo project](https://github.com/mdal-lang/mdal-demo) specify
 
 [![Edit with Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/mdal-lang/mdal-demo)
 
-In the [`mdal-lang/mdal-demo-extenion`](https://github.com/mdal-lang/mdal-demo-extension) repository you can find an example on how to further customize the base app defined by the demo project (e. g. in order to complement the posting routines). The customizations are implemented as an additional VS Code extension that uses the base app as dependency.
+In the [`mdal-lang/mdal-demo-extenion`](https://github.com/mdal-lang/mdal-demo-extension) repository you can find an example on how to further customize the base app defined by the demo project (e. g. in order to complement the posting routines). The customizations are implemented as an additional AL extension that uses the base app as dependency.
 
 ## Language Elements
 
